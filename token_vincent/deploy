@@ -1,0 +1,14 @@
+
+WALLETADDRESS="aleo17pfg3jehehglqnrl9p5ye3rr4vm03fsr3sd5f3k0g9m75hsruypst0sa6g"
+PRIVATEKEY="APrivateKey1zkp5xGLJ3y1SNazLX1pQSfVy5YgMBXfwaaHy9ACDa1Z3eFT"
+
+APPNAME="token_vincent"
+PATHTOAPP=$(realpath -q $APPNAME)
+
+RECORD="{
+  owner: aleo17pfg3jehehglqnrl9p5ye3rr4vm03fsr3sd5f3k0g9m75hsruypst0sa6g.private,
+  microcredits: 35000000u64.private,
+  _nonce: 4545712238007246345160483419556765617473835178869964792235895241307411472409group.public
+}"
+
+cd .. && snarkos developer deploy "${APPNAME}.aleo" --private-key "${PRIVATEKEY}" --query "https://vm.aleo.org/api" --path "./${APPNAME}/build/" --broadcast "https://vm.aleo.org/api/testnet3/transaction/broadcast" --fee 1000000 --record "${RECORD}"``
